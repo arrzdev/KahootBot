@@ -48,27 +48,42 @@ def Display(status=False, question=False, answer=False, probability=False):
     #CHANGE TITLE
     SetTitle(title=status)
 
+    #PROBABILITY ROUND
+    probability = str(probability)[:4]
+
     #RE-STRUCT
-    if len(question) < 46:
+    if len(question) == 0:
+        question = ' '*48
+    elif len(question) < 46:
         question = f'{question}..{(46-len(question))*" "}'
     else:
         question = f'{question[:46]}..'
     
-    if len(answer) < 46:
+    if len(answer) == 0:
+        answer = ' '*48
+    elif len(answer) < 46:
         answer = f'{answer}..{(46-len(answer))*" "}'
     else:
         answer = f'{answer[:46]}..'
 
-    if len(str(probability)) < 46:
-        probability = f'{str(probability)[:4]}%{(46-len(str(probability)))*" "}'
-
     if len(status) < 46:
         status = f'{status}{(46-len(status))*" "}'
 
+    #ROUND PROBABILITY
+    if len(str(probability)) == 0:
+        probability = ' '*47
+    elif len(str(probability)) == 3:
+        probability = f'{str(probability)[:3]}%{" "*43}'
+    else:
+        probability = f'{str(probability)[:4]}%{" "*42}'
+
+
+    #CHANGE COLOR CONSOANT STATUS
     if 'running' in status.lower():
         status = f'\033[92m{status}\033[94m'
     else:
         status = f'\033[91m{status}\033[94m'
+
 
 
 
