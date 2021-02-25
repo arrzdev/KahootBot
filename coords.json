@@ -1,0 +1,23 @@
+{
+    "fullscreen": {
+        "x-off": 0,
+        "y-off": 350,
+        "width": 1000,
+        "height": 795
+    },
+
+    "ingame": {
+        "x-off": 0,
+        "y-off": 350,
+        "width": 950,
+        "height": 430
+    },
+
+    "loading": {
+        "x-off": 10,
+        "y-off": 520,
+        "width": 950,
+        "height": 625
+    }
+
+}
