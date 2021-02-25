@@ -1,6 +1,6 @@
 # ABOUT #
 
-KahootBot is program that gives you the answer to any question from your teacher kahoot.
+KahootBot a is program that gives you the answer to any question from your teacher kahoot.
 Using ComputerVision, Pytesseract etc...
 Works from meeting screenshare: (Google-Meet, Zoom, Microsoft-Teams, Jitsi)
 Thanks to, https://github.com/TitanHZZ, for tips and support.
@@ -23,9 +23,9 @@ Thanks to, https://github.com/TitanHZZ, for tips and support.
 
 
 
-#### // TO-DO // ####
-- Set db by (topic, language, creation...) instead of link (top 4)
-- Create updateDB.py
+#### TO-DO ####
+- Set db by (topic, language, creation...) instead of link
+- Create script to update local db's
 - Auto-answer with win32 or pyautogui
-- Add a way to change the percentage of winning with auto-answer that we want
-- Change the design ?
+- Add a way to configure the percentage of winning with auto-answer
+- Design changes?
