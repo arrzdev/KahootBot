@@ -1,16 +1,16 @@
 {
     "fullscreen": {
         "x-off": 0,
-        "y-off": 350,
+        "y-off": 305,
         "width": 1000,
-        "height": 795
+        "height": 935
     },
 
     "ingame": {
         "x-off": 0,
-        "y-off": 350,
+        "y-off": 310,
         "width": 950,
-        "height": 430
+        "height": 365
     },
 
     "loading": {
@@ -18,6 +18,33 @@
         "y-off": 520,
         "width": 950,
         "height": 625
+    },
+	
+	
+	
+	
+	"top_left": {
+        "x-off": 45,
+        "y-off": 640,
+        "width": 475,
+        "height": 690
+    },
+	"top_right": {
+        "x-off": 510,
+        "y-off": 640,
+        "width": 930,
+        "height": 690
+    },
+	"bottom_left": {
+        "x-off": 45,
+        "y-off": 710,
+        "width": 475,
+        "height": 760
+    },
+	"bottom_right": {
+        "x-off": 510,
+        "y-off": 710,
+        "width": 930,
+        "height": 760
     }
-
 }

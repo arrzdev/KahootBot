@@ -37,11 +37,6 @@ def calc_prob(dictionary=False, question=False):
 
     return best_prob, best_question
 
-
-
-
-
-
 '''
         temp_seed = 0
         for i in k:

@@ -58,7 +58,7 @@ def get_answers(array):
 
 
                 results.update({
-                    unidecode.unidecode(question.find_element_by_class_name("styles__Question-enothq-4").text.lower()).strip().replace('\'', '').replace('"', ''):unidecode.unidecode(resposta_certa.lower()).strip()
+                    unidecode.unidecode(question.find_element_by_class_name("styles__Question-enothq-4").text.lower()).strip().replace('\'', '').replace('"', ''):unidecode.unidecode(resposta_certa.lower()).strip().replace('\'', '').replace('"', '')
                 })
 
             question.click()
@@ -66,7 +66,7 @@ def get_answers(array):
     driver.quit()
     return results
 
-def get_links(topic=False, language='pt', quantity=10):
+def get_links(topic=False, language='pt', quantity=6):
     if not topic:
         return 'You need to specify a topic'
 

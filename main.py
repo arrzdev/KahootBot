@@ -20,7 +20,7 @@ import colorama
 
 #SELF-MADE MODULES
 from modules.db_functions import *
-from modules.algorithms import calc_prob
+from modules.algorithms import *
 
 #IMAGING MODULES
 import numpy as np
@@ -122,9 +122,24 @@ def Imaging():
         loading_coords = coords['loading']
         question_loading_image = np.array(ImageGrab.grab(bbox=(loading_coords['x-off'],loading_coords['y-off'],loading_coords['width'],loading_coords['height'])))
 
+        '''
+        #button_cords
+        top_left = coords['top_left']
+        top_right = coords['top_right']
+        bottom_right = coords['bottom_right']
+        bottom_left = coords['bottom_left']
+
+        #BUTTONS IMAGE
+        top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
+        top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
+        bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
+        bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
+        '''
+
         while Waiting(full_img):
             Imaging()
         
+        #GET RESPONSE FROM THE FUNCTION
         if not Gaming(question_game_image):
             Gaming(question_loading_image)
 
@@ -163,14 +178,8 @@ def Gaming(image):
     #GET RAW TEXT FROM IMAGE
     raw_question = unidecode.unidecode((pytesseract.image_to_string(image, lang='eng')).lower()).strip()
 
-    #CLEAN THE QUESTION TEXT
-    sliced_question = raw_question.split('\n')
-    for slice_ in sliced_question:
-        if len(slice_) > 10:
-            question = slice_.strip()
-            break
-        else:
-            question = ''
+    #CLEAN RAW QUESTION
+    question = CleanRaw(raw_question)
 
     #LOGIC TO DISPLAY THE ANSWER, PROBABILITY ETC..
     if question != '' and question != last_question:
@@ -182,6 +191,12 @@ def Gaming(image):
                 last_probability = '100'
                 Display(question=question, answer=answer, probability='100')
                 last_answer = answer
+
+                #RUN AUTO PLAY IF THATS ON
+                if autop:
+                    #RUN AUTOPLAY
+                    pass
+                    
         
         #IF EXCEPTION RUN MEANS THE QUESTION DOESNT MATCH 100% IN DATABASE
         except:
@@ -201,8 +216,24 @@ def Gaming(image):
                     last_probability = probability
                     Display(question=question, answer=answer, probability=probability)
                     last_answer = answer
+
+                    #RUN AUTO PLAY IF THATS ON
+                    if autop:
+                        #RUN AUTOPLAY
+                        pass
+
             else:
                 return False
+
+def CleanRaw(text):
+    #CLEAN THE QUESTION TEXT
+    sliced_question = text.split('\n')
+    for slice_ in sliced_question:
+        if len(slice_) > 10:
+            return slice_.strip()
+            break
+        else:
+            return ''
 
 def SetDB(topic=False):
     global db
@@ -216,11 +247,14 @@ def SetDB(topic=False):
 
     #LOGIC IF ARGUMENT EQUALS TO 'SAVE'
     if topic not in dbs:
+        #GET LANGUAGE
+        language = str(input('       Language (pt or en): '))
+
         #GET THE KAHOOT LINKS 
         raw_topic = topic.replace('.json', '')
 
         Display(status='Getting Links')
-        top_links = get_links(topic=raw_topic)
+        top_links = get_links(topic=raw_topic, language=language)
 
         Display(status=f'Building Database of {raw_topic}')
         db = get_answers(top_links)
@@ -256,11 +290,6 @@ def SetWindow():
     Display(status='Getting user topic input')
     
 
-
-
-
-
-
 if __name__ == '__main__':
     #INIT COLORAMA AUTO-RESET
     colorama.init(autoreset=True)
@@ -274,14 +303,21 @@ if __name__ == '__main__':
     last_probability = ''
     db = None
 
+    top_left_btn = None
+    top_right_btn = None
+    bottom_left_btn = None
+    bottom_right_btn = None
+
+
+    autop = True
+
     #SET WINDOW
     SetWindow()
     
     #SET DB BY SCRAPING OR LOADING
-    SetDB(topic=str(input('       Topico: ')))
+    SetDB(topic=str(input('       Topico: ')),)
 
     #START THE MAIN FUNCTION
     Imaging()
 
     #for f in os.listdir('dictio'): print(f)
-    
