@@ -19,8 +19,8 @@ import unidecode
 import colorama
 
 #SELF-MADE MODULES
-from modules.db_generator import get
-from modules.prob import calc_prob
+from modules.db_functions import *
+from modules.algorithms import calc_prob
 
 #IMAGING MODULES
 import numpy as np
@@ -29,10 +29,10 @@ import pytesseract
 
 
 banner = '''\033[93m
-      _  __   _   _  _  ___   ___ _____    ___  ___ _____ 
-     | |/ /  /_\ | || |/ _ \ / _ \_   _|__| _ )/ _ \_   _|
-     | ' <  / _ \| __ | (_) | (_) || ||___| _ \ (_) || |  
-     |_|\_\/_/ \_\_||_|\___/ \___/ |_|    |___/\___/ |_|  
+       _  __   _   _  _  ___   ___ _____    ___  ___ _____ 
+      | |/ /  /_\ | || |/ _ \ / _ \_   _|__| _ )/ _ \_   _|
+      | ' <  / _ \| __ | (_) | (_) || ||___| _ \ (_) || |  
+      |_|\_\/_/ \_\_||_|\___/ \___/ |_|    |___/\___/ |_|  
 '''
 
 
@@ -72,7 +72,7 @@ def Display(status=False, question=False, answer=False, probability=False):
     #ROUND PROBABILITY
     if len(str(probability)) == 0:
         probability = ' '*47
-    elif len(str(probability)) == 3:
+    elif str(probability)[:3] == '100':
         probability = f'{str(probability)[:3]}%{" "*43}'
     else:
         probability = f'{str(probability)[:4]}%{" "*42}'
@@ -100,10 +100,10 @@ def Display(status=False, question=False, answer=False, probability=False):
     print(f'''\033[94m
       |--------------------------------------------------|
       | \033[93mPERGUNTA:\033[94m                                        |
-      | \033[92m{question}\033[94m |
+      | \033[92m{question.capitalize()}\033[94m |
       |--------------------------------------------------|
       | \033[93mREPOSTA:\033[94m                                         |
-      | \033[92m{answer}\033[94m | 
+      | \033[92m{answer.capitalize()}\033[94m | 
       |--------------------------------------------------|
       | \033[93mPROBABILIDADE DE ACERTO:\033[94m                         |
       | \033[92m{probability}\033[94m  |
@@ -206,61 +206,38 @@ def Gaming(image):
             else:
                 return False
 
-def SetDB(arg=False, file=False):
+def SetDB(topic=False):
     global db
 
     #ARGUMENT NEED TO BE EITHER 'SAVE' OR 'LOAD'
-    if not arg:
-        ClearWindow()
-        print('\n [+] You need to define either save, or load db!')
-        exit()
+
+    dbs = [f for f in os.listdir('databases')]
+
+    if '.json' not in topic:
+        topic = f'{topic}.json'
 
     #LOGIC IF ARGUMENT EQUALS TO 'SAVE'
-    if arg.lower() == 'save':
-        if not file:
-            #GENERATE A 'TEMP' DB FILE NAME BY CURRENT DATE AND TIME
-            date = datetime.datetime.now()  
-            file = f'{date.day}{date.month}{date}-{date.hour}{date.minutei}{date.second}.json'
-
-        else:
-            #ADD .JSON TO THE FILE NAME PASSED IF NOT ALREADY
-            if '.json' not in file:
-                file = f'{file}.json'
-
+    if topic not in dbs:
         #GET THE KAHOOT LINKS 
-        links = str(input(" [+] Links (divided by ,): "))
-        Display(status='GETTING DB, THIS MIGHT TAKE A WHILE..')
+        raw_topic = topic.replace('.json', '')
 
-        #SPLIT THEM AND PASSED THEM TO THE 'get' FUNCTION FROM 'db_generator'
-        db = get(links.split(','))
+        Display(status='Getting Links')
+        top_links = get_links(topic=raw_topic)
+
+        Display(status=f'Building Database of {raw_topic}')
+        db = get_answers(top_links)
 
         #SAVE THE DATE IN THE FILE SPECIFIED EARLIER
-        with open(f'dictio/{file}', 'w') as f:
+        with open(f'databases/{topic}', 'w') as f:
             f.write(str(db))
 
     
     #LOGIC IF ARGUMENT EQUALS TO 'LOAD'
-    elif arg.lower() == 'load':
-        if not file:
-            ClearWindow()
-            print('\n [+] You need to specify the file you want to load from')
-            exit()
-        else:
-            #ADD .JSON TO THE FILE NAME PASSED IF NOT ALREADY
-            if '.json' not in file:
-                file = f'{file}.json'
-
-            #LOAD THE DB FROM THE FILE SPECIFIED EARLIER
-            db = json.loads(open(f'dictio/{file}').read().replace('\'', '"'))
-
-        
-
     else:
-        #IF ARGUMENT IS NEITHER 'SAVE' NOR 'LOAD'
-        #PASS STATUS TO DISPLAY
-        print('\n [+] Wrong Method!')
-        print(' [+] Methods Avaiable: [\'save\', \'load\']')
-        exit()
+        #LOAD THE DB FROM THE FILE SPECIFIED EARLIER
+        Display(status='Loading Database')
+        db = json.loads(open(f'databases/{topic}').read().replace('\'', '"'))
+
     
 def SetTitle(title=False):
     if not title:
@@ -279,7 +256,7 @@ def SetWindow():
     system('mode con:cols=65 lines=30')
 
     #CALL DISPLAY FUNCTION
-    Display(status='Starting..')
+    Display(status='Getting user topic input')
     
 
 
@@ -304,7 +281,7 @@ if __name__ == '__main__':
     SetWindow()
     
     #SET DB BY SCRAPING OR LOADING
-    SetDB(arg='load', file='futebol')
+    SetDB(topic=str(input('       Topico: ')))
 
     #START THE MAIN FUNCTION
     Imaging()
