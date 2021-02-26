@@ -111,9 +111,7 @@ def get_links(topic=False, language='pt', quantity=10):
     results = []
     for i in range(quantity):
         results.append(containers[i].get_attribute('href'))
-        print(results)
 
-    print(results)
     driver.quit()
     return results
         

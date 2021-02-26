@@ -85,8 +85,6 @@ def Display(status=False, question=False, answer=False, probability=False):
         status = f'\033[91m{status}\033[94m'
 
 
-
-
     ClearWindow()
     print(banner)
     print(f'''\033[94m
@@ -238,7 +236,6 @@ def SetDB(topic=False):
         Display(status='Loading Database')
         db = json.loads(open(f'databases/{topic}').read().replace('\'', '"'))
 
-    
 def SetTitle(title=False):
     if not title:
         return 'you need to specify a title' 
