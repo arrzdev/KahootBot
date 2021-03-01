@@ -11,6 +11,8 @@ import sys
 from time import sleep
 import json
 import datetime
+from threading import Thread
+import win32api, win32con
 
 #NORMALIZER MODULE
 import unidecode
@@ -19,7 +21,7 @@ import unidecode
 import colorama
 
 #SELF-MADE MODULES
-from modules.db_functions import *
+from modules.db_management import *
 from modules.algorithms import *
 
 #IMAGING MODULES
@@ -27,6 +29,9 @@ import numpy as np
 from PIL import ImageGrab, Image
 import pytesseract
 
+
+# --SETTINGS--
+autop = True
 
 banner = '''\033[93m
        _  __   _   _  _  ___   ___ _____    ___  ___ _____ 
@@ -36,6 +41,216 @@ banner = '''\033[93m
 '''
 
 
+#SET FUNCTIONS
+def SetTitle(title=False):
+    if not title:
+        return 'you need to specify a title' 
+
+    system(f'title "{title}"')
+
+def SetWindow():
+    #SET HEIGHT AND WIDTH
+    system('mode con:cols=65 lines=30')
+
+    #CALL DISPLAY FUNCTION
+    Display(status='Getting user topic input')
+
+def SetDB(topic=False):
+    global db
+
+    #ARGUMENT NEED TO BE EITHER 'SAVE' OR 'LOAD'
+
+    dbs = [f for f in os.listdir('databases')]
+
+    if '.json' not in topic:
+        topic = f'{topic}.json'
+
+    #LOGIC IF ARGUMENT EQUALS TO 'SAVE'
+    if topic not in dbs:
+        #GET LANGUAGE
+        language = str(input('       Language (pt or en): '))
+
+        #GET THE KAHOOT LINKS 
+        raw_topic = topic.replace('.json', '')
+
+        Display(status='Getting Links')
+        top_links = get_links(topic=raw_topic, language=language)
+
+        Display(status=f'Building Database of {raw_topic}')
+        db = create_db(top_links)
+
+        #SAVE THE DATE IN THE FILE SPECIFIED EARLIER
+        with open(f'databases/{topic}', 'w') as f:
+            f.write(str(db))
+
+    
+    #LOGIC IF ARGUMENT EQUALS TO 'LOAD'
+    else:
+        #LOAD THE DB FROM THE FILE SPECIFIED EARLIER
+        Display(status='Loading Database')
+        db = json.loads(open(f'databases/{topic}').read().replace('\'', '"'))
+
+
+#INFORMATION PROCESSMENT FUNCTIONS
+def Imaging():
+    while True:
+        #REAL TIME LOAD COORDS CONFIG
+        coords = json.loads(open(f'coords.json').read())
+
+        fullscreen_coords = coords['ingame']
+        full_img = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height'])))
+
+        question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],370)))
+
+        question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625)))
+
+        while Waiting(full_img):
+            Imaging()
+        
+        #GET RESPONSE FROM THE FUNCTION
+        if not Gaming(question_game_image):
+            Gaming(question_loading_image)
+
+def Waiting(image):
+    global Flag
+    global last_status
+
+    waiting_texts = ['waiting for players', 'join', 'start', 'entre', 'iniciar', 'aguardando jogadores']
+
+    try:
+        page_text = (pytesseract.image_to_string(image, lang='eng')).lower()
+    except:
+        pass
+
+
+    if any(x in page_text for x in waiting_texts):
+        last_status = 'Waiting for game to start'
+        Display(status='Waiting for game to start')
+        Flag = False
+        return True
+
+    else:
+        if Flag == False:
+            last_status = 'Game Running'
+            Display(status='Game Running')
+            Flag = True
+            return False
+        else:
+            return False
+
+def Gaming(image):
+    global last_answer
+    global last_question
+    global last_probability
+
+    #GET RAW TEXT FROM IMAGE
+    raw_question = unidecode.unidecode((pytesseract.image_to_string(image, lang='eng')).lower()).strip()
+
+    #CLEAN RAW QUESTION
+    question = CleanRaw(raw_question)
+
+    #LOGIC TO DISPLAY THE ANSWER, PROBABILITY ETC..
+    if question != '' and question != last_question:
+        #TRY GO GET THE ANSWER IN CASE THE QUESTION MATCH 100%
+        try:
+            answer = db[question]
+            if answer != last_answer:
+                #CALL DISPLAY WITH ANSWER
+                last_probability = '100'
+                Display(question=question, answer=answer, probability='100')
+                last_answer = answer
+
+                #RUN AUTO PLAY IF THATS ON
+                if autop:
+                    #RUN AUTOPLAY
+                    pass
+                    
+        
+        #IF EXCEPTION RUN MEANS THE QUESTION DOESNT MATCH 100% IN DATABASE
+        except:
+            #RUN ALGORITHM AND GET ANSWER WITH THE BEST FITNESS        
+            prob, question = identify_question(dictionary=db, question=question)
+
+            #SET THE CORRECT ANSWER IF THE PROBABILITY IS GREATER THAN 40% AND THE ANSWER IS DIFFERENT FROM THE ONE THAT IS ALREADY SET
+            if prob > 0.4:
+                answer = db[question]
+                if answer != last_answer:
+                    #CALL DISPLAY WITH ANSWER
+                    if prob > 1:
+                        probability = 100
+                    else:
+                        probability = prob * 100
+                        
+                    last_probability = probability
+                    Display(question=question, answer=answer, probability=probability)
+                    last_answer = answer
+
+                    #RUN AUTO PLAY IF THATS ON
+                    if autop:
+                        #RUN AUTOPLAY
+                        pass
+
+            else:
+                return False
+
+def AutoPlay():
+    last_action = ''
+
+    def click(x,y):
+        win32api.SetCursorPos((x,y))
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
+        sleep(0.01) #This pauses the script for 0.01 seconds
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
+
+    while True:
+        coords = json.loads(open(f'coords.json').read())
+        #button_cords
+        top_left = coords['top_left']
+        top_right = coords['top_right']
+        bottom_right = coords['bottom_right']
+        bottom_left = coords['bottom_left']
+
+        #BUTTONS IMAGE
+        top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
+        top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
+        bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
+        bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
+
+        raw_array = [top_left_btn, top_right_btn, bottom_left_btn, bottom_right_btn]
+
+        #GET TEXT, CLEAN IT, AND ADD IT TO A CLEAN ARRAY
+        clean_array = []
+        for button in raw_array:
+            raw_answer = unidecode.unidecode((pytesseract.image_to_string(button, lang='eng')).lower()).strip()
+            clean_array.append(raw_answer)
+
+        #CHECK SO WE DONT REPEAT THE SAME CLICK ACTION AS BEFORE
+        if last_answer != last_action:
+
+            #GET THE INDEX OF THE ANSWER
+            algo_response = identify_answer_index(answer=last_answer, dictionary=clean_array)
+
+            #IF a != False and probability > 0
+            if algo_response:
+                if algo_response[0] > 0:
+
+                    #OVERWRITE THE LAST ACTION WITH THE NEW ANSWER ACTION
+                    last_action = last_answer
+
+                    #DEFINE INDEX OF THE ANSWER
+                    index = algo_response[1]
+
+                    if index == 0:
+                        click(1200, 180)
+                    elif index == 1:
+                        click(1670, 180)
+                    elif index == 2:
+                        click(1200, 260)
+                    elif index == 3:
+                        click(1670, 260)
+
+
+#DISPLAY FUNCTION
 def Display(status=False, question=False, answer=False, probability=False):
     if not question or not answer or not probability:
         question = last_question
@@ -108,123 +323,8 @@ def Display(status=False, question=False, answer=False, probability=False):
       |--------------------------------------------------|
     ''')
     
-def Imaging():
-    while True:
-        #REAL TIME LOAD COORDS CONFIG
-        coords = json.loads(open(f'coords.json').read())
 
-        fullscreen_coords = coords['ingame']
-        full_img = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height'])))
-
-        ingame_coords = coords['ingame']
-        question_game_image = np.array(ImageGrab.grab(bbox=(ingame_coords['x-off'],ingame_coords['y-off'],ingame_coords['width'],ingame_coords['height'])))
-
-        loading_coords = coords['loading']
-        question_loading_image = np.array(ImageGrab.grab(bbox=(loading_coords['x-off'],loading_coords['y-off'],loading_coords['width'],loading_coords['height'])))
-
-        '''
-        #button_cords
-        top_left = coords['top_left']
-        top_right = coords['top_right']
-        bottom_right = coords['bottom_right']
-        bottom_left = coords['bottom_left']
-
-        #BUTTONS IMAGE
-        top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
-        top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
-        bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
-        bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
-        '''
-
-        while Waiting(full_img):
-            Imaging()
-        
-        #GET RESPONSE FROM THE FUNCTION
-        if not Gaming(question_game_image):
-            Gaming(question_loading_image)
-
-def Waiting(image):
-    global Flag
-    global last_status
-
-    waiting_texts = ['waiting for players', 'join', 'start', 'entre', 'iniciar', 'aguardando jogadores']
-
-    try:
-        page_text = (pytesseract.image_to_string(image, lang='eng')).lower()
-    except:
-        pass
-
-
-    if any(x in page_text for x in waiting_texts):
-        last_status = 'Waiting for game to start'
-        Display(status='Waiting for game to start')
-        Flag = False
-        return True
-
-    else:
-        if Flag == False:
-            last_status = 'Game Running'
-            Display(status='Game Running')
-            Flag = True
-            return False
-        else:
-            return False
-
-def Gaming(image):
-    global last_answer
-    global last_question
-    global last_probability
-
-    #GET RAW TEXT FROM IMAGE
-    raw_question = unidecode.unidecode((pytesseract.image_to_string(image, lang='eng')).lower()).strip()
-
-    #CLEAN RAW QUESTION
-    question = CleanRaw(raw_question)
-
-    #LOGIC TO DISPLAY THE ANSWER, PROBABILITY ETC..
-    if question != '' and question != last_question:
-        #TRY GO GET THE ANSWER IN CASE THE QUESTION MATCH 100%
-        try:
-            answer = db[question]
-            if answer != last_answer:
-                #CALL DISPLAY WITH ANSWER
-                last_probability = '100'
-                Display(question=question, answer=answer, probability='100')
-                last_answer = answer
-
-                #RUN AUTO PLAY IF THATS ON
-                if autop:
-                    #RUN AUTOPLAY
-                    pass
-                    
-        
-        #IF EXCEPTION RUN MEANS THE QUESTION DOESNT MATCH 100% IN DATABASE
-        except:
-            #RUN ALGORITHM AND GET ANSWER WITH THE BEST FITNESS        
-            prob, question = calc_prob(dictionary=db, question=question)
-
-            #SET THE CORRECT ANSWER IF THE PROBABILITY IS GREATER THAN 40% AND THE ANSWER IS DIFFERENT FROM THE ONE THAT IS ALREADY SET
-            if prob > 0.4:
-                answer = db[question]
-                if answer != last_answer:
-                    #CALL DISPLAY WITH ANSWER
-                    if prob > 1:
-                        probability = 100
-                    else:
-                        probability = prob * 100
-                        
-                    last_probability = probability
-                    Display(question=question, answer=answer, probability=probability)
-                    last_answer = answer
-
-                    #RUN AUTO PLAY IF THATS ON
-                    if autop:
-                        #RUN AUTOPLAY
-                        pass
-
-            else:
-                return False
-
+#OTHER FUNCTIONS
 def CleanRaw(text):
     #CLEAN THE QUESTION TEXT
     sliced_question = text.split('\n')
@@ -235,59 +335,11 @@ def CleanRaw(text):
         else:
             return ''
 
-def SetDB(topic=False):
-    global db
-
-    #ARGUMENT NEED TO BE EITHER 'SAVE' OR 'LOAD'
-
-    dbs = [f for f in os.listdir('databases')]
-
-    if '.json' not in topic:
-        topic = f'{topic}.json'
-
-    #LOGIC IF ARGUMENT EQUALS TO 'SAVE'
-    if topic not in dbs:
-        #GET LANGUAGE
-        language = str(input('       Language (pt or en): '))
-
-        #GET THE KAHOOT LINKS 
-        raw_topic = topic.replace('.json', '')
-
-        Display(status='Getting Links')
-        top_links = get_links(topic=raw_topic, language=language)
-
-        Display(status=f'Building Database of {raw_topic}')
-        db = get_answers(top_links)
-
-        #SAVE THE DATE IN THE FILE SPECIFIED EARLIER
-        with open(f'databases/{topic}', 'w') as f:
-            f.write(str(db))
-
-    
-    #LOGIC IF ARGUMENT EQUALS TO 'LOAD'
-    else:
-        #LOAD THE DB FROM THE FILE SPECIFIED EARLIER
-        Display(status='Loading Database')
-        db = json.loads(open(f'databases/{topic}').read().replace('\'', '"'))
-
-def SetTitle(title=False):
-    if not title:
-        return 'you need to specify a title' 
-
-    system(f'title "{title}"')
-
 def ClearWindow():
     if sys.platform.startswith('linux'):
         system('clear')
     else:
         system('cls')
-
-def SetWindow():
-    #SET HEIGHT AND WIDTH
-    system('mode con:cols=65 lines=30')
-
-    #CALL DISPLAY FUNCTION
-    Display(status='Getting user topic input')
     
 
 if __name__ == '__main__':
@@ -303,21 +355,15 @@ if __name__ == '__main__':
     last_probability = ''
     db = None
 
-    top_left_btn = None
-    top_right_btn = None
-    bottom_left_btn = None
-    bottom_right_btn = None
+    #INIT AUTOPLAY IN CASE ITS TRUE
+    if autop:
+        t = Thread(target=(AutoPlay))
+        t.start()
 
-
-    autop = True
 
     #SET WINDOW
     SetWindow()
-    
     #SET DB BY SCRAPING OR LOADING
     SetDB(topic=str(input('       Topico: ')),)
-
     #START THE MAIN FUNCTION
     Imaging()
-
-    #for f in os.listdir('dictio'): print(f)

@@ -16,10 +16,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
+#RANDOM ACCOUNT TO MAKE REQUESTS USE IT IF IT STILL WORKS IF NOT CREATE A ACCOUNT AND UPDATE THIS 
 usern = 'kahoot.bot.resolver@gmail.com'
 passw = 'kahootbotpost'
 
-def get_answers(array):
+def create_db(array):
     results = {}
     options = FirefoxOptions()
     options.add_argument("--headless")
