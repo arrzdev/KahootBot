@@ -13,6 +13,7 @@ import json
 import datetime
 from threading import Thread
 import win32api, win32con
+from ctypes import *
 
 #NORMALIZER MODULE
 import unidecode
@@ -26,7 +27,7 @@ from modules.algorithms import *
 
 #IMAGING MODULES
 import numpy as np
-from PIL import ImageGrab, Image, ImageOps
+from PIL import ImageGrab, Image, ImageOps, ImageFilter
 import pytesseract
 
 
@@ -98,11 +99,15 @@ def Imaging():
         coords = json.loads(open(f'coords.json').read())
 
         fullscreen_coords = coords['ingame']
-        full_img = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height']))))
+        full_img = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height']))))
 
-        question_game_image = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400))))
+        question_game_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400))))
 
-        question_loading_image = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625))))
+        question_loading_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625))))
+
+        #cv2.imshow('aa',  full_img)
+        #cv2.imshow('bb',  question_game_image)
+        #cv2.imshow('cc',  question_loading_image)
 
         while Waiting(full_img):
             Imaging()
@@ -197,10 +202,16 @@ def AutoPlay():
     last_action = ''
 
     def click(x,y):
+        #BLOCKING USER INPUT 
+        windll.user32.BlockInput(True)
         win32api.SetCursorPos((x,y))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-        sleep(0.01) #This pauses the script for 0.01 seconds
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
+        #PERFORM A CLICK 2 TIMES
+        for i in range(2):
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
+            sleep(0.02) #This pauses the script for 0.01 seconds
+            win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
+        #ENABLE USER INPUT
+        windll.user32.BlockInput(False)
 
     while True:
         coords = json.loads(open(f'coords.json').read())
@@ -210,9 +221,9 @@ def AutoPlay():
             fiftyfifty_left = coords['answer_5050_left']
             fiftyfifty_right = coords['answer_5050_right']
 
-            fiftyfifty_left_btn = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fiftyfifty_left['x-off'],fiftyfifty_left['y-off'],fiftyfifty_left['width'],fiftyfifty_left['height']))))
+            fiftyfifty_left_btn = np.array(FilterImage(ImageGrab.grab(bbox=(fiftyfifty_left['x-off'],fiftyfifty_left['y-off'],fiftyfifty_left['width'],fiftyfifty_left['height']))))
 
-            fiftyfifty_right_btn = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fiftyfifty_right['x-off'],fiftyfifty_right['y-off'],fiftyfifty_right['width'],fiftyfifty_right['height']))))
+            fiftyfifty_right_btn = np.array(FilterImage(ImageGrab.grab(bbox=(fiftyfifty_right['x-off'],fiftyfifty_right['y-off'],fiftyfifty_right['width'],fiftyfifty_right['height']))))
             
             raw_array = [fiftyfifty_left_btn, fiftyfifty_right_btn]
 
@@ -250,10 +261,10 @@ def AutoPlay():
             bottom_left = coords['answer_bottom_left']
 
             #BUTTONS IMAGE
-            top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
-            top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
-            bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
-            bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
+            top_left_btn = np.array(FilterImage(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height']))))
+            top_right_btn = np.array(FilterImage(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height']))))
+            bottom_left_btn = np.array(FilterImage(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height']))))
+            bottom_right_btn = np.array(FilterImage(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height']))))
 
             raw_array = [top_left_btn, top_right_btn, bottom_left_btn, bottom_right_btn]
 
@@ -380,6 +391,9 @@ def ClearWindow():
     else:
         system('cls')
     
+def FilterImage(image):
+    return ImageOps.grayscale(image).filter(ImageFilter.MinFilter(1)).filter(ImageFilter.SMOOTH_MORE).filter(ImageFilter.SMOOTH_MORE)
+
 
 if __name__ == '__main__':
     #INIT COLORAMA AUTO-RESET

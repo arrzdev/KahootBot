@@ -40,37 +40,39 @@ def identify_question(dictionary=False, question=False):
 def identify_answer_index(answer=False, dictionary=False):
     #if not answer or not dictionary:
         #return 'argument missing'
+    if dictionary[::] != '' and len(dictionary[::]) > 3:
+        best_answer = ''
+        fitness = 0
 
-    best_answer = ''
-    fitness = 0
+        #DIVIDE
+        answer_words = answer.split(' ')
 
-    #DIVIDE
-    answer_words = answer.split(' ')
+        #ITERATE TROUGH THE DICTIONARY
+        for db_question in dictionary:
+            db_question_words = db_question.split(' ')
+            temp_fitness = 0
+            for word in db_question_words:
+                try:
+                    if word == answer_words[db_question_words.index(word)]:
+                        temp_fitness += 5
+                except:
+                    pass
+            
+            if temp_fitness > fitness:
+                fitness = temp_fitness
+                best_answer = db_question
 
-    #ITERATE TROUGH THE DICTIONARY
-    for db_question in dictionary:
-        db_question_words = db_question.split(' ')
-        temp_fitness = 0
-        for word in db_question_words:
-            try:
-                if word == answer_words[db_question_words.index(word)]:
-                    temp_fitness += 5
-            except:
-                pass
-        
-        if temp_fitness > fitness:
-            fitness = temp_fitness
-            best_answer = db_question
+        best_prob = fitness/(len(answer_words)*5)
 
-    best_prob = fitness/(len(answer_words)*5)
+        #ROUND TO 100%
+        if best_prob > 1:
+            best_prob == 1
 
-    #ROUND TO 100%
-    if best_prob > 1:
-        best_prob == 1
-
-    try:
-        return best_prob, dictionary.index(best_answer)
-    except:
+        try:
+            return best_prob, dictionary.index(best_answer)
+        except:
+            return False
+    else:
         return False
 
 

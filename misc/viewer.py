@@ -6,18 +6,18 @@ import json
 while True:
     coords = json.loads(open('../coords.json').read())
 
-    '''
+    
     fullscreen_coords = coords['fullscreen']
     full_img = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height'])))
     cv2.imshow('FullImageCanvas', full_img)
 
-    question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400)))
-    cv2.imshow('InGameCanvas', question_game_image)
+    #question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400)))
+    #cv2.imshow('InGameCanvas', question_game_image)
 
-    question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625)))
-    cv2.imshow('LoadingCanvas', question_loading_image)
+    #question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625)))
+    #cv2.imshow('LoadingCanvas', question_loading_image)
+
     '''
-
     #VIEW BUTTONS UI
     top_left = coords['answer_top_left']
     top_right = coords['answer_top_right']
@@ -43,6 +43,8 @@ while True:
 
     cv2.imshow('bottom_right',  fiftyfifty_left_btn)
     cv2.imshow('bottom_left',  fiftyfifty_right_btn)
+    '''
+
 
     if cv2.waitKey(25) & 0xFF == ord('q'):  
             cv2.destroyAllWindows()
