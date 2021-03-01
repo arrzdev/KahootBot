@@ -1,7 +1,7 @@
 {
     "fullscreen": {
         "x-off": 0,
-        "y-off": 320,
+        "y-off": 340,
         "width": 950,
         "height": 800
     },
@@ -23,28 +23,69 @@
 
 
 
-    "top_left": {
+    "answer_top_left": {
         "x-off": 45,
         "y-off": 620,
         "width": 435,
         "height": 690
     },
-    "top_right": {
+    "answer_top_right": {
         "x-off": 515,
         "y-off": 620,
         "width": 905,
         "height": 690
     },
-    "bottom_left": {
+    "answer_bottom_left": {
         "x-off": 45,
         "y-off": 700,
         "width": 435,
         "height": 765
     },
-    "bottom_right": {
+    "answer_bottom_right": {
         "x-off": 515,
         "y-off": 700,
         "width": 905,
         "height": 765
+    },
+
+        "x-off": 45,
+        "y-off": 640,
+        "width": 390,
+        "height": 765
+    },
+
+    "answer_5050_right": {
+        "x-off": 515,
+        "y-off": 640,
+        "width": 850,
+        "height": 765
+    },
+
+
+
+    "player_top_left": {
+        "x-off": 1200,
+        "y-off": 180
+    },
+    "player_top_right": {
+        "x-off": 1670,
+        "y-off": 180
+    },
+    "player_bottom_left": {
+        "x-off": 1200,
+        "y-off": 265
+    },
+    "player_bottom_right": {
+        "x-off": 1670,
+        "y-off": 265
+    },
+    "player_5050_left": {
+        "x-off": 1200,
+        "y-off": 165
+    },
+    "player_5050_right": {
+        "x-off": 1670,
+        "y-off": 165
     }
+
 }

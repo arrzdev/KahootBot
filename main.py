@@ -26,7 +26,7 @@ from modules.algorithms import *
 
 #IMAGING MODULES
 import numpy as np
-from PIL import ImageGrab, Image
+from PIL import ImageGrab, Image, ImageOps
 import pytesseract
 
 
@@ -98,11 +98,11 @@ def Imaging():
         coords = json.loads(open(f'coords.json').read())
 
         fullscreen_coords = coords['ingame']
-        full_img = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height'])))
+        full_img = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height']))))
 
-        question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],370)))
+        question_game_image = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400))))
 
-        question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625)))
+        question_loading_image = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625))))
 
         while Waiting(full_img):
             Imaging()
@@ -204,50 +204,89 @@ def AutoPlay():
 
     while True:
         coords = json.loads(open(f'coords.json').read())
-        #button_cords
-        top_left = coords['top_left']
-        top_right = coords['top_right']
-        bottom_right = coords['bottom_right']
-        bottom_left = coords['bottom_left']
 
-        #BUTTONS IMAGE
-        top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
-        top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
-        bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
-        bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
+        if any(last_answer == x for x in ['verdadeira', 'falsa', 'true', 'false', 'falso', 'verdadeiro']):
+            #['verdadeiro', 'falso', 'true', 'false']
+            fiftyfifty_left = coords['answer_5050_left']
+            fiftyfifty_right = coords['answer_5050_right']
 
-        raw_array = [top_left_btn, top_right_btn, bottom_left_btn, bottom_right_btn]
+            fiftyfifty_left_btn = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fiftyfifty_left['x-off'],fiftyfifty_left['y-off'],fiftyfifty_left['width'],fiftyfifty_left['height']))))
 
-        #GET TEXT, CLEAN IT, AND ADD IT TO A CLEAN ARRAY
-        clean_array = []
-        for button in raw_array:
-            raw_answer = unidecode.unidecode((pytesseract.image_to_string(button, lang='eng')).lower()).strip()
-            clean_array.append(raw_answer)
+            fiftyfifty_right_btn = np.array(ImageOps.grayscale(ImageGrab.grab(bbox=(fiftyfifty_right['x-off'],fiftyfifty_right['y-off'],fiftyfifty_right['width'],fiftyfifty_right['height']))))
+            
+            raw_array = [fiftyfifty_left_btn, fiftyfifty_right_btn]
 
-        #CHECK SO WE DONT REPEAT THE SAME CLICK ACTION AS BEFORE
-        if last_answer != last_action:
+            #GET TEXT, CLEAN IT, AND ADD IT TO A CLEAN ARRAY
+            clean_array = []
+            for button in raw_array:
+                raw_answer = unidecode.unidecode((pytesseract.image_to_string(button, lang='eng')).lower()).strip()
+                clean_array.append(raw_answer)
 
-            #GET THE INDEX OF THE ANSWER
-            algo_response = identify_answer_index(answer=last_answer, dictionary=clean_array)
+            #CHECK SO WE DONT REPEAT THE SAME CLICK ACTION AS BEFORE
+            if last_answer != last_action:
 
-            #IF a != False and probability > 0
-            if algo_response:
-                if algo_response[0] > 0:
+                #GET THE INDEX OF THE ANSWER
+                algo_response = identify_answer_index(answer=last_answer, dictionary=clean_array)
 
-                    #OVERWRITE THE LAST ACTION WITH THE NEW ANSWER ACTION
-                    last_action = last_answer
+                #IF a != False and probability > 0
+                if algo_response:
+                    if algo_response[0] > 0:
 
-                    #DEFINE INDEX OF THE ANSWER
-                    index = algo_response[1]
+                        #OVERWRITE THE LAST ACTION WITH THE NEW ANSWER ACTION
+                        last_action = last_answer
 
-                    if index == 0:
-                        click(1200, 180)
-                    elif index == 1:
-                        click(1670, 180)
-                    elif index == 2:
-                        click(1200, 260)
-                    elif index == 3:
-                        click(1670, 260)
+                        #DEFINE INDEX OF THE ANSWER
+                        index = algo_response[1]
+
+                        if index == 0:
+                            click(coords["player_5050_left"]["x-off"], coords["player_5050_left"]["y-off"])
+                        elif index == 1:
+                            click(coords["player_5050_right"]["x-off"], coords["player_5050_right"]["y-off"])
+        else:
+            #button_cords
+            top_left = coords['answer_top_left']
+            top_right = coords['answer_top_right']
+            bottom_right = coords['answer_bottom_right']
+            bottom_left = coords['answer_bottom_left']
+
+            #BUTTONS IMAGE
+            top_left_btn = np.array(ImageGrab.grab(bbox=(top_left['x-off'],top_left['y-off'],top_left['width'],top_left['height'])))
+            top_right_btn = np.array(ImageGrab.grab(bbox=(top_right['x-off'],top_right['y-off'],top_right['width'],top_right['height'])))
+            bottom_left_btn = np.array(ImageGrab.grab(bbox=(bottom_left['x-off'],bottom_left['y-off'],bottom_left['width'],bottom_left['height'])))
+            bottom_right_btn = np.array(ImageGrab.grab(bbox=(bottom_right['x-off'],bottom_right['y-off'],bottom_right['width'],bottom_right['height'])))
+
+            raw_array = [top_left_btn, top_right_btn, bottom_left_btn, bottom_right_btn]
+
+            #GET TEXT, CLEAN IT, AND ADD IT TO A CLEAN ARRAY
+            clean_array = []
+            for button in raw_array:
+                raw_answer = unidecode.unidecode((pytesseract.image_to_string(button, lang='eng')).lower()).strip()
+                clean_array.append(raw_answer)
+
+            #CHECK SO WE DONT REPEAT THE SAME CLICK ACTION AS BEFORE
+            if last_answer != last_action:
+
+                #GET THE INDEX OF THE ANSWER
+                algo_response = identify_answer_index(answer=last_answer, dictionary=clean_array)
+
+                #IF a != False and probability > 0
+                if algo_response:
+                    if algo_response[0] > 0:
+
+                        #OVERWRITE THE LAST ACTION WITH THE NEW ANSWER ACTION
+                        last_action = last_answer
+
+                        #DEFINE INDEX OF THE ANSWER
+                        index = algo_response[1]
+
+                        if index == 0:
+                            click(coords["player_top_left"]["x-off"], coords["player_top_left"]["y-off"])
+                        elif index == 1:
+                            click(coords["player_top_right"]["x-off"], coords["player_top_right"]["y-off"])
+                        elif index == 2:
+                            click(coords["player_bottom_left"]["x-off"], coords["player_bottom_left"]["y-off"])
+                        elif index == 3:
+                            click(coords["player_bottom_right"]["x-off"], coords["player_bottom_right"]["y-off"])
 
 
 #DISPLAY FUNCTION

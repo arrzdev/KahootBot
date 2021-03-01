@@ -1,0 +1,18 @@
+1614593661612	geckodriver	INFO	Listening on 127.0.0.1:49933
+1614593664729	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileW1CVE7"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614593672832	Marionette	INFO	Listening on port 49941
+1614593673015	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://create.kahoot.it/v2/assets/js/runtime-main.ca9369fc.js, line 1: ChunkLoadError: Loading chunk 0 failed.
+(error: https://create.kahoot.it/v2/assets/js/0.8d4df4f9.chunk.js)
+JavaScript error: https://create.kahoot.it/v2/assets/js/runtime-main.ca9369fc.js, line 1: ChunkLoadError: Loading chunk 0 failed.
+(error: https://create.kahoot.it/v2/assets/js/0.8d4df4f9.chunk.js)
+1614593701793	Marionette	INFO	Stopped listening on port 49941
+1614593703968	geckodriver	INFO	Listening on 127.0.0.1:50018
+1614593706956	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileoKuxK7"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614593714504	Marionette	INFO	Listening on port 50027
+1614593714746	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614593810227	Marionette	INFO	Stopped listening on port 50027
