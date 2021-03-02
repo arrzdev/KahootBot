@@ -51,7 +51,7 @@ def SetTitle(title=False):
 
 def SetWindow():
     #SET HEIGHT AND WIDTH
-    system('mode con:cols=65 lines=30')
+    system('mode con:cols=65 lines=35')
 
     #CALL DISPLAY FUNCTION
     Display(status='Getting user topic input')
@@ -162,8 +162,9 @@ def Gaming(image):
             if answer != last_answer:
                 #CALL DISPLAY WITH ANSWER
                 last_probability = '100'
-                Display(question=question, answer=answer, probability='100')
                 last_answer = answer
+                last_question = question
+                Display(question=question, answer=answer, probability='100')
 
                 #RUN AUTO PLAY IF THATS ON
                 if autop:
@@ -186,14 +187,10 @@ def Gaming(image):
                     else:
                         probability = prob * 100
                         
+                    last_answer = answer
+                    last_question = question
                     last_probability = probability
                     Display(question=question, answer=answer, probability=probability)
-                    last_answer = answer
-
-                    #RUN AUTO PLAY IF THATS ON
-                    if autop:
-                        #RUN AUTOPLAY
-                        pass
 
             else:
                 return False
@@ -204,12 +201,19 @@ def AutoPlay():
     def click(x,y):
         #BLOCKING USER INPUT 
         windll.user32.BlockInput(True)
+        
+        #MOVE CURSOR TO THE POSITION
         win32api.SetCursorPos((x,y))
+        
         #PERFORM A CLICK 2 TIMES
         for i in range(2):
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-            sleep(0.02) #This pauses the script for 0.01 seconds
+            sleep(0.02) #This pauses the script for 0.02 seconds
             win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
+        
+        #MOVE THE MOUSE TO THE MIDDLE OF THE BUTTONS
+        win32api.SetCursorPos((1425,215))
+
         #ENABLE USER INPUT
         windll.user32.BlockInput(False)
 
@@ -242,6 +246,7 @@ def AutoPlay():
                 #IF a != False and probability > 0
                 if algo_response:
                     if algo_response[0] > 0:
+                        Display(lurdes_status='Let me help you!')
 
                         #OVERWRITE THE LAST ACTION WITH THE NEW ANSWER ACTION
                         last_action = last_answer
@@ -251,8 +256,14 @@ def AutoPlay():
 
                         if index == 0:
                             click(coords["player_5050_left"]["x-off"], coords["player_5050_left"]["y-off"])
+                            button = 'left'
                         elif index == 1:
                             click(coords["player_5050_right"]["x-off"], coords["player_5050_right"]["y-off"])
+                            button = 'right'
+
+
+                        sleep(1.25)
+                        Display(lurdes_status=f'Clicked the {button} button ({last_answer})')
         else:
             #button_cords
             top_left = coords['answer_top_left']
@@ -277,6 +288,8 @@ def AutoPlay():
             #CHECK SO WE DONT REPEAT THE SAME CLICK ACTION AS BEFORE
             if last_answer != last_action:
 
+                Display(lurdes_status='I\'am thinking..')
+
                 #GET THE INDEX OF THE ANSWER
                 algo_response = identify_answer_index(answer=last_answer, dictionary=clean_array)
 
@@ -292,16 +305,22 @@ def AutoPlay():
 
                         if index == 0:
                             click(coords["player_top_left"]["x-off"], coords["player_top_left"]["y-off"])
+                            button = 'top left'
                         elif index == 1:
                             click(coords["player_top_right"]["x-off"], coords["player_top_right"]["y-off"])
+                            button = 'top right'
                         elif index == 2:
                             click(coords["player_bottom_left"]["x-off"], coords["player_bottom_left"]["y-off"])
+                            button = 'bottom left'
                         elif index == 3:
                             click(coords["player_bottom_right"]["x-off"], coords["player_bottom_right"]["y-off"])
-
+                            button = 'bottom right'
+                        
+                        sleep(1.25)
+                        Display(lurdes_status=f'Clicked the {button} button ({last_answer})')
 
 #DISPLAY FUNCTION
-def Display(status=False, question=False, answer=False, probability=False):
+def Display(status=False, question=False, answer=False, probability=False, lurdes_status=False):
     if not question or not answer or not probability:
         question = last_question
         probability = last_probability
@@ -309,6 +328,9 @@ def Display(status=False, question=False, answer=False, probability=False):
 
     if not status:
         status = last_status
+
+    if not lurdes_status:
+        lurdes_status = 'I\'m alive!' 
 
     #CHANGE TITLE
     SetTitle(title=status)
@@ -331,8 +353,14 @@ def Display(status=False, question=False, answer=False, probability=False):
     else:
         answer = f'{answer[:46]}..'
 
-    if len(status) < 46:
-        status = f'{status}{(46-len(status))*" "}'
+    if len(status) < 48:
+        status = f'{status}{(48-len(status))*" "}'
+
+    #LURDES STATUS
+    if len(lurdes_status) < 48:
+        lurdes_status = f'{lurdes_status}{(48-len(lurdes_status))*" "}'
+    else:
+        lurdes_status = f'{lurdes_status[:46]}..'
 
     #ROUND PROBABILITY
     if len(str(probability)) == 0:
@@ -343,11 +371,14 @@ def Display(status=False, question=False, answer=False, probability=False):
         probability = f'{str(probability)[:4]}%{" "*42}'
 
 
+
     #CHANGE COLOR CONSOANT STATUS
     if 'running' in status.lower():
         status = f'\033[92m{status}\033[94m'
     else:
         status = f'\033[91m{status}\033[94m'
+
+
 
 
     ClearWindow()
@@ -356,7 +387,7 @@ def Display(status=False, question=False, answer=False, probability=False):
 
       |--------------------------------------------------|
       | \033[93mSTATUS:\033[94m                                          |
-      | {status}   |
+      | {status} |
       |--------------------------------------------------|
     ''')
 
@@ -372,6 +403,15 @@ def Display(status=False, question=False, answer=False, probability=False):
       | \033[92m{probability}\033[94m  |
       |--------------------------------------------------|
     ''')
+
+    if autop:
+        print(f'''\033[94m
+      |--------------------------------------------------|
+      | \033[93mA.I:   \033[94m                                          |
+      | \033[92m{lurdes_status}\033[94m |
+      |--------------------------------------------------|
+    ''')
+
     
 
 #OTHER FUNCTIONS
@@ -406,6 +446,7 @@ if __name__ == '__main__':
     last_answer = ''
     last_status = ''
     last_probability = ''
+
     db = None
 
     #INIT AUTOPLAY IN CASE ITS TRUE
