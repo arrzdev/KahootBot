@@ -16,3 +16,23 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1614593714504	Marionette	INFO	Listening on port 50027
 1614593714746	Marionette	WARN	TLS certificate errors will be ignored for this session
 1614593810227	Marionette	INFO	Stopped listening on port 50027
+1615207671843	geckodriver	INFO	Listening on 127.0.0.1:51297
+1615207676191	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilerIDEYJ"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615207707662	Marionette	INFO	Listening on port 51305
+1615207708563	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://create.kahoot.it/v2/assets/js/runtime-main.3f3385d1.js, line 1: ChunkLoadError: Loading chunk 0 failed.
+(error: https://create.kahoot.it/v2/assets/js/0.e3a18420.chunk.js)
+JavaScript error: https://create.kahoot.it/v2/assets/js/runtime-main.3f3385d1.js, line 1: ChunkLoadError: Loading chunk 0 failed.
+(error: https://create.kahoot.it/v2/assets/js/0.e3a18420.chunk.js)
+1615207755206	Marionette	INFO	Stopped listening on port 51305
+[Parent 6368, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1615207765242	geckodriver	INFO	Listening on 127.0.0.1:51409
+1615207768141	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilepovRJB"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1615207782082	Marionette	INFO	Listening on port 51417
+1615207782605	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615207871838	Marionette	INFO	Stopped listening on port 51417
+[Parent 7340, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167

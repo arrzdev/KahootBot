@@ -1,9 +1,9 @@
 {
     "fullscreen": {
         "x-off": 0,
-        "y-off": 340,
+        "y-off": 360,
         "width": 950,
-        "height": 800
+        "height": 795
     },
 
     "ingame": {

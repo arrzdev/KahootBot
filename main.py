@@ -262,7 +262,7 @@ def AutoPlay():
                             button = 'right'
 
 
-                        sleep(1.25)
+                        sleep(1)
                         Display(lurdes_status=f'Clicked the {button} button ({last_answer})')
         else:
             #button_cords
@@ -316,7 +316,7 @@ def AutoPlay():
                             click(coords["player_bottom_right"]["x-off"], coords["player_bottom_right"]["y-off"])
                             button = 'bottom right'
                         
-                        sleep(1.25)
+                        sleep(1)
                         Display(lurdes_status=f'Clicked the {button} button ({last_answer})')
 
 #DISPLAY FUNCTION
