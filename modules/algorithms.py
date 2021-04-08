@@ -4,78 +4,138 @@
     AUTHOR: ARRZ.DEV
 '''
 
-def identify_question(dictionary=False, question=False): 
+#ALGO TO FIND THE CLOSEST ONE
+def identify_question(dictionary=False, question=False):
     if not dictionary or not question:
-        return 'argument missing' 
+        return 'missing parameter'
+        
+    #define vars
+    phraseBest = ''
+    probBest = 0
 
-    best_question = ''
-    fitness = 0
+    #create the correct words dictionary
+    questionWords = question.split(' ')
 
-    #DIVIDE
-    question_words = question.split(' ')
+    for attemp in dictionary:
 
-    #ITERATE TROUGH THE DICTIONARY
-    for db_question in dictionary:
-        db_question_words = db_question.split(' ')
-        temp_fitness = 0
-        for word in db_question_words:
+        #NORMALIZE ATTEMP
+        ###
+
+        #create attemp words dictionary
+        attempWords = attemp.split(' ')
+
+        #check if the amount of words is less or equal than 1/3 of the original one and skip it in that case
+        if len(attempWords) <= (len(questionWords)/3):
+            continue  
+
+        #init probability as 0
+        prob = 0
+
+
+        for word_index in range(len(questionWords)):
             try:
-                if word == question_words[db_question_words.index(word)]:
-                    temp_fitness += 5
+                #print(f'W: {attempWords[word_index]}')
+                if attempWords[word_index] == questionWords[word_index]:
+                    prob += (5/(5*len(questionWords)))*100
+                else:
+                    #if the word isnt 100% equal divide in letters and test it!
+                    #create both attemp and correct letter dictionary
+
+                    #loop trough letters
+                    for letter_index in range(len(questionWords[word_index])):
+
+                        #print(f'L: {questionWords[word_index][letter_index]}')
+
+                        if attempWords[word_index][letter_index] == questionWords[word_index][letter_index]:
+                            prob += ((5/len(questionWords[word_index]))/(5*len(questionWords)))*100
+                        else:
+                            #add the penalty here for each letter
+                            pass
+
             except:
                 pass
-        
-        if temp_fitness > fitness:
-            fitness = temp_fitness
-            best_question = db_question
 
-    best_prob = fitness/(len(question_words)*5)
+        #check if it a better option
+        if prob > probBest:
+            probBest = prob
+            phraseBest = attemp
+           
+        #print if prob is != 0%
+        #if prob != 0:
+            #print(f'  MATH.PROB: {prob}')
 
-    #ROUND TO 100%
-    if best_prob > 1:
-        best_prob == 1
+        #kill switch in case probability is already 100%
+        if prob > 99.9:
+            break
 
-    return best_prob, best_question
+    return probBest, phraseBest
 
 def identify_answer_index(answer=False, dictionary=False):
-    #if not answer or not dictionary:
-        #return 'argument missing'
-    if dictionary[::] != '' and len(dictionary[::]) > 3:
-        best_answer = ''
-        fitness = 0
+    if not dictionary or not answer:
+        return 'missing parameter'
 
-        #DIVIDE
-        answer_words = answer.split(' ')
+    if len(dictionary[::]) > 3:
+        #define vars
+        answerBest = ''
+        probBest = 0
 
-        #ITERATE TROUGH THE DICTIONARY
-        for db_question in dictionary:
-            db_question_words = db_question.split(' ')
-            temp_fitness = 0
-            for word in db_question_words:
+        #create the correct words dictionary
+        answerWords = answer.split(' ')
+
+        for attemp in dictionary:
+
+            #NORMALIZE ATTEMP
+            ###
+
+            #create attemp words dictionary
+            attempWords = attemp.split(' ')
+
+            #check if the amount of words is less or equal than 1/3 of the original one and skip it in that case
+            if len(attempWords) <= (len(answerWords)/4):
+                continue  
+
+            #init probability as 0
+            prob = 0
+
+
+            for word_index in range(len(answerWords)):
                 try:
-                    if word == answer_words[db_question_words.index(word)]:
-                        temp_fitness += 5
+                    #print(f'W: {attempWords[word_index]}')
+                    if attempWords[word_index] == answerWords[word_index]:
+                        prob += (5/(5*len(answerWords)))*100
+                    else:
+                        #if the word isnt 100% equal divide in letters and test it!
+                        #create both attemp and correct letter dictionary
+
+                        #loop trough letters
+                        for letter_index in range(len(answerWords[word_index])):
+
+                            #print(f'L: {questionWords[word_index][letter_index]}')
+
+                            if attempWords[word_index][letter_index] == answerWords[word_index][letter_index]:
+                                prob += ((5/len(answerWords[word_index]))/(5*len(answerWords)))*100
+                            else:
+                                #add the penalty here for each letter
+                                pass
+
                 except:
                     pass
-            
-            if temp_fitness > fitness:
-                fitness = temp_fitness
-                best_answer = db_question
 
-        best_prob = fitness/(len(answer_words)*5)
-
-        #ROUND TO 100%
-        if best_prob > 1:
-            best_prob == 1
+            #check if it a better option
+            if prob > probBest:
+                probBest = prob
+                answerBest = attemp
+                
+            #print if prob is != 0%
+            #if prob != 0:
+                #print(f'  MATH.PROB: {prob}')
 
         try:
-            return best_prob, dictionary.index(best_answer)
+            return probBest, dictionary.index(answerBest)
         except:
             return False
     else:
         return False
-
-
 
 #FIRST ALGORITHM ATTEMP
 '''

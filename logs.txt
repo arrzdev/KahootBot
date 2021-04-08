@@ -1,0 +1,1033 @@
+.---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 100.00000000000001
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identificao significado correto deste sinal no mapa de
+[BEST]: qual o nome da tabela do lado direito com a informacao dos pontos de controlo?
+[PROB]: 22.410714285714285
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: ettat-|mel-merelalilll tale}
+[BEST-INDEX]: 3
+[PROB]: 4.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica o significado correto deste sinal no mapa de orientaC/ao.
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 95.8333333333333
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 1
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 1
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 1
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 1
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 1
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: xo) <-) i
+[BEST-INDEX]: 1
+[PROB]: 25.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientagao
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1.o unir o ponto onde estamos ao nosso destino com a regua
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual 0 primeiro procedimento a ter na orientacao
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 88.8888888888889
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1.o unir o ponto onde estamos ao nosso destino com a regua
+[BEST]: 12 unir 0 ponto onde estamos ao nosso destin<<
+[BEST-INDEX]: 2
+[PROB]: 59.92063492063491
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: refere qual o primeiro procedimento a ter na orientacao do mapa. ~~
+[BEST]: refere qual o primeiro procedimento a ter na orientacao do mapa.
+[PROB]: 91.66666666666663
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ths file has been modi
+[BEST]: as siglas dos estados do maranhao, amapa, acre, mato grosso e paraiba sao:
+[PROB]: 16.666666666666668
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: faz corresponder a imagem correta:
+[BEST]: faz corresponder a imagem correta.
+[PROB]: 97.5
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ths file has been modi
+[BEST]: as siglas dos estados do maranhao, amapa, acre, mato grosso e paraiba sao:
+[PROB]: 16.666666666666668
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existem cores diferentes para cada elemento.
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 100.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: castanho: caminhos, casas, vedacoes, linhas alta tensao
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existem cores diferentes para cada elemento.
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 100.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: castanho: caminhos, casas, vedacoes, linhas alta tensao
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: castanho: caminhos, casas, vedacoes, linhas alta tensao
+[BEST]: castanho: caminhos, casas, vedacees, linhz
+
+alee tancikn
+[BEST-INDEX]: 3
+[PROB]: 65.07936507936509
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: na simbologia do mapa existern cores diferentes para cada elernento. qual e que nao )
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 87.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: qual as escalas mais utilizadas na orientagao?
+[BEST]: qual as escalas mais utilizadas na orientacao?
+[PROB]: 98.70129870129873
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: qual as escalas mais utilizadas na orientagao?
+[BEST]: qual as escalas mais utilizadas na orientacao?
+[PROB]: 98.70129870129873
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1/10 000 e 1/ 15 000
+[BEST]: 1/50 000 e 1/500 000 > 4
+[BEST-INDEX]: 1
+[PROB]: 62.499999999999986
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientagao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 98.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: objetos para identificacao dos locais assinalados no mapa
+[BEST]: objetos para identificacao dos locais
+[BEST-INDEX]: 1
+[PROB]: 62.5
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ths file has been modi
+[BEST]: as siglas dos estados do maranhao, amapa, acre, mato grosso e paraiba sao:
+[PROB]: 16.666666666666668
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: as balizas de orientaC/ao sao:
+[BEST]: as balizas de orientacao sao:
+[PROB]: 92.7272727272727
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: io we} mic)
+[BEST]: no hemisferio norte, durante a noite, qual e a estrela que nos indica o ponto cardeal norte?
+[PROB]: 27.77777777777778
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ths file has been modi
+[BEST]: as siglas dos estados do maranhao, amapa, acre, mato grosso e paraiba sao:
+[PROB]: 16.666666666666668
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 3
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 3
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 3
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | ste we) mic)
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 14.583333333333334
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: altitudes maximas da area estao representadas pela curva de nivel de 1000m
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: altitudes maximas da area estao representadas pela curva de nivel de 1000m
+[BEST]: os pontos mais baixos da 4rea representada na
+[BEST-INDEX]: 0
+[PROB]: 6.249999999999999
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | ah ie) mic)
+[BEST]: assinala a resposta incorreta: em que consiste a afericao do passo?
+[PROB]: 27.083333333333336
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: assinala a resposta incorreta: em que consiste a afericao
+[BEST]: assinala a resposta incorreta: em que consiste a afericao do passo?
+[PROB]: 100.00000000000001
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | ah ie) mic)
+[BEST]: assinala a resposta incorreta: em que consiste a afericao do passo?
+[PROB]: 27.083333333333336
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: assinala a resposta incorreta: em que consiste a aferiC/ao
+[BEST]: assinala a resposta incorreta: em que consiste a afericao do passo?
+[PROB]: 95.06172839506175
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: contar o numero de <<passos duplos>> que se da para completar 200 metros
+[BEST]: ----------
+contar 0 ntmero de <<passos duplos>> que se de
+[BEST-INDEX]: 3
+[PROB]: 48.71794871794872
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: serve para registar no cartao de controlo cada ponto do percurso
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: serve para registar no cartao de controlo cada ponto do percurso
+[BEST]: cada picotado encontra-se a 1,5 m de cada
+[BEST-INDEX]: 3
+[PROB]: 12.5
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | sie) mic)
+[BEST]: o que significa a expressao, colocar o norte em casa?
+[PROB]: 16.666666666666664
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica (c) significado correto deste sinal no mapa de
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 88.8888888888889
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | sie) mic)
+[BEST]: o que significa a expressao, colocar o norte em casa?
+[PROB]: 16.666666666666664
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: identifica 0 significado correto deste sinal no mapa de
+[BEST]: identifica o significado correto deste sinal no mapa de orientacao.
+[PROB]: 88.8888888888889
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ths file has been modi
+[BEST]: as siglas dos estados do maranhao, amapa, acre, mato grosso e paraiba sao:
+[PROB]: 16.666666666666668
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: sinal de partida da prova
+[BEST]: sinal de passagem proibida > 4
+[BEST-INDEX]: 3
+[PROB]: 45.71428571428571
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que ano foi criada a modalidade de orientagao
+[BEST]: em que ano foi criada a modalidade de orientacao
+[PROB]: 98.88888888888893
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: 1918
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | siwe) mic)
+[BEST]: na simbologia do mapa existem cores diferentes para cada elemento. qual e que nao esta correto?
+[PROB]: 13.333333333333334
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: em que pais surgiu a modalidade de orientaC/ao?
+[BEST]: em que pais surgiu a modalidade de orientacao?
+[PROB]: 94.7916666666667
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: suecia
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: suecia
+[BEST]: sueecia
+[BEST-INDEX]: 3
+[PROB]: 50.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: ee eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee--e--e--eeeeee
+[BEST]: se estivermos voltados para a estrela polar o sol ira nascer a nossa...
+[PROB]: 25.98039215686274
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: oooo ooooeeeesv_
+[BEST]: como se chama os postos de controlo representados no terreno ?
+[PROB]: 25.0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: | a me) mis)
+[BEST]: assinala a resposta incorreta: em que consiste a afericao do passo?
+[PROB]: 33.333333333333336
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------
+---------------------------------------------------------
+[Original]: cota
+[BEST]: 
+[BEST-INDEX]: 0
+[PROB]: 0
+---------------------------------------------------------

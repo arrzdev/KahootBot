@@ -36,3 +36,88 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1615207782605	Marionette	WARN	TLS certificate errors will be ignored for this session
 1615207871838	Marionette	INFO	Stopped listening on port 51417
 [Parent 7340, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1617695274762	geckodriver	INFO	Listening on 127.0.0.1:49555
+1617695277778	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileWqBotr"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1617695288373	Marionette	INFO	Listening on port 49563
+1617695288740	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695294927	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695309838	Marionette	INFO	Stopped listening on port 49563
+1617695337658	geckodriver	INFO	Listening on 127.0.0.1:49652
+1617695340919	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilesRF2b9"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695347892	Marionette	INFO	Listening on port 49660
+1617695348755	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695354869	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695369925	Marionette	INFO	Stopped listening on port 49660
+1617695372201	geckodriver	INFO	Listening on 127.0.0.1:49740
+1617695375217	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileynLfiA"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695381654	Marionette	INFO	Listening on port 49748
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+ner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilecCGQlN"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695423106	Marionette	INFO	Listening on port 49800
+1617695423515	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695427878	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695442148	Marionette	INFO	Stopped listening on port 49800
+1617695466195	geckodriver	INFO	Listening on 127.0.0.1:49874
+1617695469340	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileqj1drA"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695480456	Marionette	INFO	Listening on port 49882
+1617695480971	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695487061	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695504706	Marionette	INFO	Stopped listening on port 49882
+1617695534880	geckodriver	INFO	Listening on 127.0.0.1:49967
+1617695537895	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilexMtWuB"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695543068	Marionette	INFO	Listening on port 49975
+1617695543339	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695547860	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695564758	Marionette	INFO	Stopped listening on port 49975
+1617695760823	geckodriver	INFO	Listening on 127.0.0.1:50066
+1617695763929	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileMHprqi"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695774493	Marionette	INFO	Listening on port 50074
+1617695774897	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695781187	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695797398	Marionette	INFO	Stopped listening on port 50074
+1617695802018	geckodriver	INFO	Listening on 127.0.0.1:50154
+1617695804807	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofile0XkID5"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695814095	Marionette	INFO	Listening on port 50162
+1617695814165	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695885274	Marionette	INFO	Stopped listening on port 50162
+1617695914503	geckodriver	INFO	Listening on 127.0.0.1:50240
+1617695917663	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofileTNB7Yq"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695926175	Marionette	INFO	Listening on port 50249
+1617695926642	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695935376	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617695951020	Marionette	INFO	Stopped listening on port 50249
+1617695974902	geckodriver	INFO	Listening on 127.0.0.1:50328
+1617695977919	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilegHItVB"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617695985352	Marionette	INFO	Listening on port 50336
+1617695985554	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617695990556	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1617696004738	Marionette	INFO	Stopped listening on port 50336
+1617696322772	geckodriver	INFO	Listening on 127.0.0.1:50431
+1617696325825	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Arr0z\\AppData\\Local\\Temp\\rust_mozprofilegnq4CZ"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617696331438	Marionette	INFO	Listening on port 50439
+1617696332058	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617696399796	Marionette	INFO	Stopped listening on port 50439

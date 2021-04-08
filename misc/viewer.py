@@ -11,10 +11,10 @@ while True:
     full_img = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height'])))
     cv2.imshow('FullImageCanvas', full_img)
 
-    question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400)))
+    question_game_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],420)))
     cv2.imshow('InGameCanvas', question_game_image)
 
-    question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625)))
+    question_loading_image = np.array(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],645)))
     cv2.imshow('LoadingCanvas', question_loading_image)
 
     '''

@@ -32,7 +32,7 @@ import pytesseract
 
 
 # --SETTINGS--
-autop = True
+autop = False #AUTO PLAY AI [TRUE / FALSE]
 
 banner = '''\033[93m
        _  __   _   _  _  ___   ___ _____    ___  ___ _____ 
@@ -76,11 +76,11 @@ def SetDB(topic=False):
 
         Display(status='Getting Links')
         top_links = get_links(topic=raw_topic, language=language)
-
+        
         Display(status=f'Building Database of {raw_topic}')
         db = create_db(top_links)
 
-        #SAVE THE DATE IN THE FILE SPECIFIED EARLIER
+        #SAVE THE DATA IN THE FILE SPECIFIED EARLIER
         with open(f'databases/{topic}', 'w') as f:
             f.write(str(db))
 
@@ -101,9 +101,9 @@ def Imaging():
         fullscreen_coords = coords['ingame']
         full_img = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off'],fullscreen_coords['width'],fullscreen_coords['height']))))
 
-        question_game_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],400))))
+        question_game_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+5,fullscreen_coords['width'],420))))
 
-        question_loading_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],625))))
+        question_loading_image = np.array(FilterImage(ImageGrab.grab(bbox=(fullscreen_coords['x-off'],fullscreen_coords['y-off']+200,fullscreen_coords['width'],645))))
 
         #cv2.imshow('aa',  full_img)
         #cv2.imshow('bb',  question_game_image)
@@ -130,18 +130,15 @@ def Waiting(image):
 
     if any(x in page_text for x in waiting_texts):
         last_status = 'Waiting for game to start'
-        Display(status='Waiting for game to start')
+        Display(status=last_status)
         Flag = False
         return True
 
     else:
-        if Flag == False:
-            last_status = 'Game Running'
-            Display(status='Game Running')
-            Flag = True
-            return False
-        else:
-            return False
+        Flag = True
+        last_status = 'Game Running'
+        Display(status=last_status)
+        return False
 
 def Gaming(image):
     global last_answer
@@ -165,28 +162,17 @@ def Gaming(image):
                 last_answer = answer
                 last_question = question
                 Display(question=question, answer=answer, probability='100')
-
-                #RUN AUTO PLAY IF THATS ON
-                if autop:
-                    #RUN AUTOPLAY
-                    pass
-                    
         
         #IF EXCEPTION RUN MEANS THE QUESTION DOESNT MATCH 100% IN DATABASE
         except:
             #RUN ALGORITHM AND GET ANSWER WITH THE BEST FITNESS        
-            prob, question = identify_question(dictionary=db, question=question)
+            probability, question = identify_question(dictionary=db, question=question)
 
             #SET THE CORRECT ANSWER IF THE PROBABILITY IS GREATER THAN 40% AND THE ANSWER IS DIFFERENT FROM THE ONE THAT IS ALREADY SET
-            if prob > 0.4:
+            if probability > 40:
                 answer = db[question]
                 if answer != last_answer:
-                    #CALL DISPLAY WITH ANSWER
-                    if prob > 1:
-                        probability = 100
-                    else:
-                        probability = prob * 100
-                        
+                    #CALL DISPLAY WITH ANSWER                        
                     last_answer = answer
                     last_question = question
                     last_probability = probability
@@ -329,8 +315,10 @@ def Display(status=False, question=False, answer=False, probability=False, lurde
     if not status:
         status = last_status
 
+
     if not lurdes_status:
         lurdes_status = 'I\'m alive!' 
+    
 
     #CHANGE TITLE
     SetTitle(title=status)
@@ -453,11 +441,14 @@ if __name__ == '__main__':
     if autop:
         t = Thread(target=(AutoPlay))
         t.start()
+        
 
 
     #SET WINDOW
     SetWindow()
+    
     #SET DB BY SCRAPING OR LOADING
     SetDB(topic=str(input('       Topico: ')),)
+    
     #START THE MAIN FUNCTION
     Imaging()

@@ -116,4 +116,3 @@ def get_links(topic=False, language='pt', quantity=6):
     driver.quit()
     return results
         
-
